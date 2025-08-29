@@ -1,0 +1,37 @@
+.carousel-container {
+  width: 100%;
+  overflow: hidden;
+  padding-top: 20px;
+  background-color: none;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.carousel {
+  cursor: grab;
+  overflow: hidden;
+  width: 100%;
+}
+
+.inner-carousel {
+  display: flex;
+  gap: 15px;
+}
+
+.item {
+  min-width: 300px;
+  height: 200px;
+  border-radius: 16px;
+  overflow: hidden;
+  flex-shrink: 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  user-select: none;
+}
+
+.item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
