@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { useState } from "react";
 
 const Section = styled.section`
   background-color: #1f2937;
@@ -37,6 +38,7 @@ const Button = styled.button`
   border-radius: 6px;
   font-weight: bold;
   transition: 0.3s;
+  cursor: pointer;
 
   &:hover {
     background-color: #0a243d;
@@ -44,13 +46,49 @@ const Button = styled.button`
 `;
 
 export default function Newsletter() {
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!email) {
+      setStatus("Por favor, insira um e-mail válido!");
+      return;
+    }
+
+    try {
+      const response = await fetch("http://localhost:5000/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await response.json();
+      if (response.ok) {
+        setStatus("E-mail cadastrado com sucesso!");
+        setEmail("");
+      } else {
+        setStatus(data.message || "Erro ao cadastrar e-mail");
+      }
+    } catch (err) {
+      setStatus("Erro de conexão com o servidor!");
+    }
+  };
+
   return (
     <Section>
       <Title>Receba nossas novidades e insights em seu e-mail</Title>
-      <Form>
-        <Input type="email" placeholder="Seu e-mail" />
-        <Button>Assinar</Button>
+      <Form onSubmit={handleSubmit}>
+        <Input
+          type="email"
+          placeholder="Seu e-mail"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <Button type="submit">Assinar</Button>
       </Form>
+      {status && <p style={{ marginTop: "12px" }}>{status}</p>}
     </Section>
   );
 }

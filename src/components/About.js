@@ -42,7 +42,7 @@ export default function About() {
       <Title>Sobre a Pólvora</Title>
       <Container>
         <Text>
-Na Pólvora Consultoria, desenvolvemos soluções completas e estratégicas para engenharia civil, com foco no gerenciamento de obras, projetos de infraestrutura e gestão integrada de empreendimentos. Nosso compromisso é transformar desafios em resultados, unindo planejamento inteligente, tecnologia e experiência de mercado.
+Na Pólvora Consultoria, desenvolvemos soluções completas e estratégicas para engenharia civil, com foco no gerenciamento de obras e gestão integrada de empreendimentos. Nosso compromisso é transformar desafios em resultados, unindo planejamento inteligente, tecnologia e experiência de mercado.
 
 Contamos com uma equipe altamente qualificada, formada por profissionais especializados que atuam com inovação e excelência técnica em todas as etapas do processo. Do planejamento à execução, oferecemos uma gestão eficiente que garante qualidade, prazos cumpridos e otimização de recursos.
 
