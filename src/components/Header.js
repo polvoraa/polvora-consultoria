@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Logo from "../images/logo2.png";
+import Logo from "../images/logo-header.svg";
 
 const HeaderContainer = styled.header`
   display: flex;
@@ -8,10 +8,9 @@ const HeaderContainer = styled.header`
   padding: 16px 24px;
   border-bottom: 1px solid #e5e7eb;
 
-  img{
+  img {
     height: 100px;
     width: auto;
-  
   }
 `;
 
@@ -28,6 +27,10 @@ const Nav = styled.nav`
       color: #2563eb;
     }
   }
+
+  @media (max-width: 768px) {
+    display: none; /* Esconde o menu no mobile */
+  }
 `;
 
 const Button = styled.button`
@@ -37,6 +40,7 @@ const Button = styled.button`
   border-radius: 6px;
   font-weight: bold;
   border: none;
+  cursor: pointer;
   transition: 0.3s;
 
   &:hover {
@@ -45,6 +49,13 @@ const Button = styled.button`
 `;
 
 export default function Header() {
+  const orcamento = () => {
+    const numero = "555197481271"; 
+    const mensagem = "Olá! Gostaria de solicitar um orçamento.";
+    const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
+    window.open(url, "_blank"); // Abre em uma nova aba
+  };
+
   return (
     <HeaderContainer>
       <img src={Logo} alt="logo" width={160} />
@@ -53,7 +64,7 @@ export default function Header() {
         <a href="#sobre">Sobre</a>
         <a href="#contato">Contato</a>
       </Nav>
-      <Button>Solicitar Consultoria</Button>
+      <Button onClick={orcamento}>Solicitar Orçamento</Button>
     </HeaderContainer>
   );
 }
