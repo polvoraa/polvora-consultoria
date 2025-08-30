@@ -8,9 +8,9 @@ Este também é o **primeiro projeto** do meu portfólio como **desenvolvedor we
 
 ## 🚀 Demonstração
 
-🔗 **Acesse o site:** [https://seu-dominio.com](https://seu-dominio.com) *(substituir pelo link real quando publicado)*
+🔗 **Acesse o site:** [https://www.polvora-consultoria.com](https://www.polvora-consultoria.com) 
 
-![Preview do Site](./preview.png) <!-- Se quiser, coloca um printscreen do site depois -->
+![Preview do Site](./src/images/preview.png) 
 
 ---
 
@@ -29,10 +29,8 @@ Este também é o **primeiro projeto** do meu portfólio como **desenvolvedor we
 | Tecnologia | Função |
 |-----------|----------------------------|
 | **React** | Framework principal do projeto |
-| **Vite / CRA** | Ferramenta de build e desenvolvimento rápido |
 | **Styled Components** | Estilização com CSS-in-JS |
 | **Framer Motion** | Animações suaves e interativas |
-| **React Icons** | Ícones vetoriais para compor o design |
 
 ---
 

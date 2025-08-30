@@ -24,8 +24,8 @@ export default function Hero() {
     <HeroSection>
       <Title>Consultoria Especializada em Engenharia</Title>
       <Description>
-        Soluções personalizadas, inovação e eficiência para seu projeto de infraestrutura,
-        edificações ou gestão de obras.
+        Soluções personalizadas para gestão de suas obras com foco em segurança, qualidade, custo e prazo.
+        Análise de viabilidade de empreendimentos e coordenação de projetos.
       </Description>
       <Carouselscroll />
     </HeroSection>
