@@ -34,6 +34,7 @@ const CarouselContainer = styled.div`
   position: relative;
   width: 100%;
   margin-top: 40px;
+  margin-bottom: 40px;
 `;
 
 // 🔹 2. Wrapper duplicado para looping perfeito

@@ -6,6 +6,7 @@ import SuccessCases from "./components/SuccessCases";
 import About from "./components/About"
 import Newsletter from "./components/Newsletter";
 import Footer from "./components/Footer";
+import Carouselscroll from "./components/Carouselscroll";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <Services />
       <SuccessCases />
       <About />
+      <Carouselscroll />
       <Newsletter />
       <Footer />
     </>

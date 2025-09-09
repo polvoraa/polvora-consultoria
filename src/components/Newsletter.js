@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { useState } from "react";
+import emailjs from "emailjs-com";
 
 const Section = styled.section`
   background-color: #1f2937;
@@ -55,24 +56,27 @@ export default function Newsletter() {
     if (!email) {
       setStatus("Por favor, insira um e-mail válido!");
       return;
-    }
+    } 
 
     try {
-      const response = await fetch("http://localhost:5000/subscribe", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email }),
-      });
+      const result = await emailjs.send(
+        "service_wmyg0qp", // Substituir pelo ID do serviço do EmailJS
+        "template_901r6vo", // Substituir pelo ID do template
+        {
+          email: email,
+        },
+        "SEU_PUBLIC_KEY" // Substituir pelo Public Key do EmailJS
+      );
 
-      const data = await response.json();
-      if (response.ok) {
-        setStatus("E-mail cadastrado com sucesso!");
+      if (result.status === 200) {
+        setStatus("E-mail enviado com sucesso!");
         setEmail("");
       } else {
-        setStatus(data.message || "Erro ao cadastrar e-mail");
+        setStatus("Erro ao enviar o e-mail. Tente novamente!");
       }
-    } catch (err) {
-      setStatus("Erro de conexão com o servidor!");
+    } catch (error) {
+      console.error("Erro ao enviar:", error);
+      setStatus("Erro ao enviar o e-mail. Tente novamente!");
     }
   };
 

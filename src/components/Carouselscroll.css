@@ -1,7 +1,7 @@
 .carousel-container {
   width: 100%;
   overflow: hidden;
-  padding-top: 20px;
+  padding: 40px 0;
   background-color: none;
   display: flex;
   justify-content: center;

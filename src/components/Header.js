@@ -25,7 +25,7 @@ const Nav = styled.nav`
     transition: color 0.3s;
 
     &:hover {
-      color: #2563eb;
+      color: #1f2937;
     }
   }
 
@@ -37,7 +37,7 @@ const Nav = styled.nav`
 const Button = styled.button`
   background-color: #0c2d4d;
   color: white;
-  padding: 8px 16px;
+  padding: 16px 32px;
   border-radius: 6px;
   font-weight: bold;
   border: none;
