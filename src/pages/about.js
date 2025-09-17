@@ -1,9 +1,10 @@
 import styled from "styled-components";
 import RenderLogo from "../images/render.png";
+import Newsletter from "../components/Newsletter";
+import { div } from "framer-motion/client";
 
 const Section = styled.section`
   padding: 48px 24px;
-  margin-top: 40px;
 `;
 
 const Title = styled.h2`
@@ -39,6 +40,7 @@ const Image = styled.img`
 
 export default function About() {
   return (
+    <div>
     <Section id="sobre">
       <Title>Sobre a Pólvora</Title>
       <Container>
@@ -52,5 +54,7 @@ Mais do que entregar projetos, buscamos construir confiança. Cada cliente receb
         <Image src={RenderLogo} alt="Render Logo" />
       </Container>
     </Section>
+    <Newsletter />
+    </div>
   );
 }

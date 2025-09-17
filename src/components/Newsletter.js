@@ -7,6 +7,7 @@ const Section = styled.section`
   color: white;
   text-align: center;
   padding: 48px 24px;
+  margin-top: 40px;
 `;
 
 const Title = styled.h3`

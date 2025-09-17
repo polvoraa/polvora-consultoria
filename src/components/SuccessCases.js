@@ -7,6 +7,9 @@ import Solos from "../images/solos.jpg";
 const Section = styled.section`
   padding: 48px 24px;
   background-color: #f9fafb;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  border-radius: 8px; /* opcional, só pra deixar mais suave */
+  margin-top: 40px;
 `;
 
 const Title = styled.h2`

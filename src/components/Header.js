@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Logo from "../images/logo-header.svg";
+import { Link } from "react-router-dom";
 
 const HeaderContainer = styled.header`
   display: flex;
@@ -59,11 +60,13 @@ export default function Header() {
 
   return (
     <HeaderContainer>
-      <img src={Logo} alt="logo" width={160} />
+      <Link to="/">
+        <img src={Logo} alt="logo" width={160} />
+      </Link>
       <Nav>
-        <a href="#servicos">Serviços</a>
-        <a href="#sobre">Sobre</a>
-        <a href="#contato">Contato</a>
+        <Link to="/projects">Projetos</Link>
+        <Link to="/about">Sobre</Link>
+        <Link to="/contact">Contato</Link>
       </Nav>
       <Button onClick={orcamento}>Solicitar Orçamento</Button>
     </HeaderContainer>

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const Section = styled.section`
   padding: 48px 24px;
@@ -24,6 +25,11 @@ const Card = styled.div`
   font-weight: 600;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 
+  &:hover{
+    scale: 1.05;
+    transition: 1.5s;
+  }
+
 `;
 
 export default function Services() {
@@ -31,10 +37,18 @@ export default function Services() {
     <Section id="servicos">
       <Title>Serviços</Title>
       <Grid>
-        <Card>Gerenciamento de Obras</Card>
-        <Card>Fiscalização técnica</Card>
-        <Card>Planejamento e controle</Card>
-        <Card>Consultoria especializada</Card>
+        <Link to="/gerenciamentoObras">
+          <Card>Gerenciamento de Obras</Card>
+        </Link>
+        <Link to="/fiscalizacaoTecnica">
+          <Card>Fiscalização técnica</Card>
+        </Link>
+        <Link to="/planejamentoEcontrole">
+          <Card>Planejamento e controle</Card>
+        </Link>
+        <Link to="/consultoriaEspecializada">
+          <Card>Consultoria especializada</Card>
+        </Link>
       </Grid>
     </Section>
   );
