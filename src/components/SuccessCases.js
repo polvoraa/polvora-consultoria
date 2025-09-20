@@ -4,6 +4,10 @@ import Bosque1 from "../images/bosque1.jpg";
 import Bosque2 from "../images/bosque2.jpg";
 import Solos from "../images/solos.jpg";
 
+const Container = styled.div`
+  padding: 0 40px;
+`
+
 const Section = styled.section`
   padding: 48px 24px;
   background-color: #f9fafb;
@@ -99,29 +103,31 @@ const SmallOverlay = styled.div`
 
 export default function SuccessCases() {
   return (
-    <Section>
-      <Title>Casos de Sucesso</Title>
-      <Grid>
-        <MainCase>
-          <img src={Quadrak} alt="Quadra K" />
-          <Overlay>Quadra K</Overlay>
-        </MainCase>
+    <Container>
+      <Section>
+        <Title>Casos de Sucesso</Title>
+        <Grid>
+          <MainCase>
+            <img src={Quadrak} alt="Quadra K" />
+            <Overlay>Quadra K</Overlay>
+          </MainCase>
 
-        <ListCases>
-          <SmallCase>
-            <img src={Bosque1} alt="Bosque 1" />
-            <SmallOverlay>Bosque 1</SmallOverlay>
-          </SmallCase>
-          <SmallCase>
-            <img src={Bosque2} alt="Bosque 2" />
-            <SmallOverlay>Bosque 2</SmallOverlay>
-          </SmallCase>
-          <SmallCase>
-            <img src={Solos} alt="Solos" />
-            <SmallOverlay>Solos</SmallOverlay>
-          </SmallCase>
-        </ListCases>
-      </Grid>
-    </Section>
+          <ListCases>
+            <SmallCase>
+              <img src={Bosque1} alt="Bosque 1" />
+              <SmallOverlay>Bosque 1</SmallOverlay>
+            </SmallCase>
+            <SmallCase>
+              <img src={Bosque2} alt="Bosque 2" />
+              <SmallOverlay>Bosque 2</SmallOverlay>
+            </SmallCase>
+            <SmallCase>
+              <img src={Solos} alt="Solos" />
+              <SmallOverlay>Solos</SmallOverlay>
+            </SmallCase>
+          </ListCases>
+        </Grid>
+      </Section>
+    </Container>
   );
 }

@@ -1,6 +1,10 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
+const Container = styled.div`
+  padding: 0 40px;
+`
+
 const Section = styled.section`
   padding: 48px 24px;
 `;
@@ -34,22 +38,24 @@ const Card = styled.div`
 
 export default function Services() {
   return (
-    <Section id="servicos">
-      <Title>Serviços</Title>
-      <Grid>
-        <Link to="/gerenciamentoObras">
-          <Card>Gerenciamento de Obras</Card>
-        </Link>
-        <Link to="/fiscalizacaoTecnica">
-          <Card>Fiscalização técnica</Card>
-        </Link>
-        <Link to="/planejamentoEcontrole">
-          <Card>Planejamento e controle</Card>
-        </Link>
-        <Link to="/consultoriaEspecializada">
-          <Card>Consultoria especializada</Card>
-        </Link>
-      </Grid>
-    </Section>
+    <Container>
+      <Section id="servicos">
+        <Title>Serviços</Title>
+        <Grid>
+          <Link to="/gerenciamentoObras">
+            <Card>Gerenciamento de Obras</Card>
+          </Link>
+          <Link to="/fiscalizacaoTecnica">
+            <Card>Fiscalização técnica</Card>
+          </Link>
+          <Link to="/planejamentoEcontrole">
+            <Card>Planejamento e controle</Card>
+          </Link>
+          <Link to="/consultoriaEspecializada">
+            <Card>Consultoria especializada</Card>
+          </Link>
+        </Grid>
+      </Section>
+    </Container>
   );
 }

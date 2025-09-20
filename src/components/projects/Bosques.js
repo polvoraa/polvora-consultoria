@@ -1,5 +1,7 @@
 import styled from "styled-components";
-import QuadraK from "../../images/letreiroBosque.jpg";
+import Bosque3 from "../../images/letreiroBosque.jpg";
+import Bosque2 from "../../images/bosque2.jpg";
+import Bosque1 from "../../images/bosque1.jpg";
 
 const Section = styled.section`
   padding: 48px 24px;
@@ -9,12 +11,15 @@ const Title = styled.h2`
   font-size: 1.875rem;
   font-weight: bold;
   margin-bottom: 16px;
+  margin-left: 100px;
 `;
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: 16px;
+  max-width: 1200px;
+  margin: 0 auto;
 
   @media (min-width: 768px) {
     flex-direction: row;
@@ -31,7 +36,7 @@ const Text = styled.div`
 const Image = styled.img`
   flex: 1;
   min-width: 300px;
-  height: 300px;
+  height: 350px;
   object-fit: cover;
   border-radius: 8px;
 `;
@@ -44,53 +49,66 @@ const VideoContainer = styled.div`
   margin-top: 2rem;
 `;
 
-const VideoWrapper = styled.div`
-  width: 50%; /* ocupa metade da largura */
+const MediaWrapper = styled.div`
+  flex: 1;
   max-width: 600px;
-  aspect-ratio: 16/9;
-  border-radius: 16px;
+  border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 
-  iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-  }
-
-  /* responsivo */
   @media (max-width: 900px) {
-    width: 100%; /* em telas menores, ocupa largura total */
+    width: 100%;
   }
 `;
 
+const VideoWrapper = styled(MediaWrapper)`
+  iframe {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    height: auto;
+    border: none;
+    display: block;
+  }
+`;
+
+const ImageWrapper = styled(MediaWrapper)`
+  img {
+    width: 100%;
+    aspect-ratio: 16 / 9; /* força mesma proporção do vídeo */
+    height: auto;
+    object-fit: cover;
+    display: block;
+  }
+`;
+
+
 export default function Projects() {
-    return (
-        <div>
-            <Section id="sobre">
-                <Title>Casas do bosque - Gramado/RS</Title>
-                <Container>
-                    <Text>
-                        Se a vida na cidade passa rápido, no condomínio<br/>
-                        O Bosque você vive todos os dias intensamente.<br/>
-                        São 35 hectares com uma reserva particular do patrimônio natural, localizados a 3 minutos do centro de Gramado. Um refúgio de mata nativa com toda infra-estrutura e segurança.<br/>
-                        São 2 modelos de casas, completamente  integrados com a natureza, atendendo o seu estilo. Todos os lotes com área privativa superior a 1000m².<br/>
-<br/>
-                        O Bosque está localizado a 2,5Km da Rua Coberta, há 5 minutos de restaurantes, casas de fondue, boutiques, salões de beleza, cinemas, galerias e Centro de eventos.<br/>
-                        A localização do condomínio O Bosque permite que você desfrute do melhor de Gramado sem perder o descanso e a privacidade.<br/>
-                    </Text>
-                    <Image src={QuadraK} alt="Render Logo" />
-                </Container>
-            </Section>
-            <VideoContainer>
-                <VideoWrapper>
-                    <iframe width="1040" height="585"
-                        src="https://www.youtube.com/embed/edAbKtZ29v4"
-                        title="CASAS DO BOSQUE - GRAMADO/RS - IVO RIZZO"
-                        allowfullscreen
-                    ></iframe>
-                </VideoWrapper>
-            </VideoContainer>
-        </div>
-    );
+  return (
+    <div>
+      <Section id="sobre">
+        <Title>Casas do bosque - Gramado/RS</Title>
+        <Container>
+          <Text>
+            Se a vida na cidade passa rápido, no condomínio<br />
+            O Bosque você vive todos os dias intensamente.<br />
+            São 35 hectares com uma reserva particular do patrimônio natural, localizados a 3 minutos do centro de Gramado. Um refúgio de mata nativa com toda infra-estrutura e segurança.<br />
+            São 2 modelos de casas, completamente  integrados com a natureza, atendendo o seu estilo. Todos os lotes com área privativa superior a 1000m².<br />
+            <br />
+            O Bosque está localizado a 2,5Km da Rua Coberta, há 5 minutos de restaurantes, casas de fondue, boutiques, salões de beleza, cinemas, galerias e Centro de eventos.<br />
+            A localização do condomínio O Bosque permite que você desfrute do melhor de Gramado sem perder o descanso e a privacidade.<br />
+          </Text>
+          <Image src={Bosque1} alt="Bosque 1" />
+        </Container>
+        <VideoContainer>
+          <ImageWrapper>
+            <img src={Bosque2} alt="Bosque 2" />
+          </ImageWrapper>
+
+          <ImageWrapper>
+      <img src={Bosque3} alt="Bosque 3" />
+          </ImageWrapper>
+        </VideoContainer>
+      </Section>
+    </div>
+  );
 }
