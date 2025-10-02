@@ -76,7 +76,7 @@ export default function Projects() {
   return (
     <div>
       <Section id="sobre">
-        <Title>Casas do bosque - Gramado/RS</Title>
+        <Title>Ricaldone 2233 - Porto Alegre/RS</Title>
         <Container>
           <Text>
             Se a vida na cidade passa rápido, no condomínio<br />

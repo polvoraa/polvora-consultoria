@@ -95,7 +95,7 @@ export default function Projects() {
           </ImageWrapper>
 
           <ImageWrapper>
-      <img src={Bosque3} alt="Bosque 3" />
+            <img src={Bosque3} alt="Bosque 3" />
           </ImageWrapper>
         </VideoContainer>
       </Section>

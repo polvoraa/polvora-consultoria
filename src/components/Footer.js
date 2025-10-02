@@ -26,11 +26,11 @@ const SocialLinks = styled.div`
 export default function Footer() {
   return (
     <FooterContainer id="contato">
-      <div>© 2025 Pólvora Consultoria. Todos os direitos reservados.</div>
+      <div></div>
       <SocialLinks>
-        <a href="#">Instagram</a>
-        <a href="#">LinkedIn</a>
-        <a href="#">Whatsapp</a>
+        <a href="https://www.instagram.com/fabianopolvora">Instagram</a>
+        <a href="https://www.linkedin.com/in/fabiano-polvora-5686719?originalSubdomain=br">LinkedIn</a>
+        <a href="https://wa.me/555197481271">Whatsapp</a>
       </SocialLinks>
     </FooterContainer>
   );
