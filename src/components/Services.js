@@ -42,6 +42,9 @@ export default function Services() {
       <Section id="servicos">
         <Title>Serviços</Title>
         <Grid>
+          <Link to="/consultoriaEspecializada">
+            <Card>Consultoria especializada</Card>
+          </Link>
           <Link to="/gerenciamentoObras">
             <Card>Gerenciamento de Obras</Card>
           </Link>
@@ -50,9 +53,6 @@ export default function Services() {
           </Link>
           <Link to="/planejamentoEcontrole">
             <Card>Planejamento e controle</Card>
-          </Link>
-          <Link to="/consultoriaEspecializada">
-            <Card>Consultoria especializada</Card>
           </Link>
         </Grid>
       </Section>

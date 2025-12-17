@@ -1,3 +1,4 @@
+import Newsletter from "../components/Newsletter";
 import QuadraKcomponent from "../components/projects/QuadraK";
 import Bosques from "../components/projects/Bosques";
 import Solos from "../components/projects/Solos";
@@ -11,6 +12,7 @@ export default function Projects() {
       <Bosques />
       <Solos />
       <Ricaldone />
+      <Newsletter/>
     </section>
 
   );

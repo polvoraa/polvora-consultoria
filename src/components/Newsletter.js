@@ -83,8 +83,8 @@ export default function Newsletter() {
 
   return (
     <Section>
-      <Title>Receba nossas novidades e insights em seu e-mail</Title>
-      <Form onSubmit={handleSubmit}>
+      <Title>Solicite um orçamento e vamos levar seu projeto de engenharia civil ao próximo nível.</Title>
+      {/* <Form onSubmit={handleSubmit}>
         <Input
           type="email"
           placeholder="Seu e-mail"
@@ -92,7 +92,7 @@ export default function Newsletter() {
           onChange={(e) => setEmail(e.target.value)}
         />
         <Button type="submit">Assinar</Button>
-      </Form>
+      </Form> */}
       {status && <p style={{ marginTop: "12px" }}>{status}</p>}
     </Section>
   );

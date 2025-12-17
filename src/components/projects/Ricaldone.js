@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import Bosque3 from "../../images/letreiroBosque.jpg";
-import Bosque2 from "../../images/bosque2.jpg";
-import Bosque1 from "../../images/bosque1.jpg";
+import Bosque3 from "../../images/ricaldone229.jpg";
+import Bosque2 from "../../images/ricaldone2291.jpeg";
+import Bosque1 from "../../images/ricaldone1.jpg";
 
 const Section = styled.section`
   padding: 48px 24px;

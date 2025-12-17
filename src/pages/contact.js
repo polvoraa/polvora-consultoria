@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Render from "../images/render.png";
 import Newsletter from "../components/Newsletter";
+import ButtonOrcamento from "../components/Buttonorcamento"
 
 const Section = styled.section`
   padding: 80px 24px;
@@ -9,10 +10,11 @@ const Section = styled.section`
 `;
 
 const Title = styled.h2`
-  font-size: 2.25rem;
-  font-weight: 700;
-  text-align: center;
-  margin-bottom: 48px;
+  font-size: 1.25rem;
+  font-weight: 500;
+  text-align: left;
+  margin-top: 14px;
+  margin-bottom: 14px;
   color: #0c2d4d;
 `;
 
@@ -104,13 +106,28 @@ const Image = styled.img`
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
 `;
 
+const Text = styled.text`
+  font-size: 2.25rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 48px;
+  color: #0c2d4d;
+`
+const TextContainer = styled.div`
+
+`
+
+const ButtonContainer = styled.div`
+  margin-top: 48px;
+`
+
 export default function Projects() {
   return (
     <div>
       <Section id="sobre">
         <Title>Entre em Contato</Title>
         <Container>
-          <FormContainer>
+          {/* <FormContainer>
             <Form>
               <Label>Nome</Label>
               <Input type="text" placeholder="Seu nome" />
@@ -120,7 +137,16 @@ export default function Projects() {
               <Input type="text" placeholder="Digite sua mensagem" />
               <Button type="submit">Enviar</Button>
             </Form>
-          </FormContainer>
+          </FormContainer> */}
+          <TextContainer>
+            <Title>Telefone:</Title>
+            <Text>+55 51 99748-1271</Text>
+            <Title>Email:</Title>
+            <Text>fabiano.polvora@gmail.com</Text>
+            <ButtonContainer>
+              <ButtonOrcamento />
+            </ButtonContainer>
+          </TextContainer>
           <Image src={Render} alt="Render Logo" />
         </Container>
       </Section>

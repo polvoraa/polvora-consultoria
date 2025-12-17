@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Logo from "../images/logo-header.svg";
+import ButtonOrcamento from "../components/Buttonorcamento"
 import { Link } from "react-router-dom";
 
 const HeaderContainer = styled.header`
@@ -35,20 +36,7 @@ const Nav = styled.nav`
   }
 `;
 
-const Button = styled.button`
-  background-color: #0c2d4d;
-  color: white;
-  padding: 16px 32px;
-  border-radius: 6px;
-  font-weight: bold;
-  border: none;
-  cursor: pointer;
-  transition: 0.3s;
 
-  &:hover {
-    background-color: #0a243d;
-  }
-`;
 
 export default function Header() {
   const orcamento = () => {
@@ -64,11 +52,11 @@ export default function Header() {
         <img src={Logo} alt="logo" width={160} />
       </Link>
       <Nav>
-        <Link to="/projects">Projetos</Link>
-        <Link to="/about">Sobre</Link>
+        <Link to="/about">Serviços de Consultoria</Link>
+        <Link to="/projects">Projetos Executados</Link>
         <Link to="/contact">Contato</Link>
       </Nav>
-      <Button onClick={orcamento}>Solicitar Orçamento</Button>
+      <ButtonOrcamento/>
     </HeaderContainer>
   );
 }
