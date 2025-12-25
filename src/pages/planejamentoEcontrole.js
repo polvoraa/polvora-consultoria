@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import QuadraK from "../images/render.png";
 import Newsletter from "../components/Newsletter";
+import Dashborads from "../images/PlanejamentoEControle/dashboards.jpeg"
 import { div } from "framer-motion/client";
 
 const Section = styled.section`
@@ -43,7 +44,7 @@ export default function Projects() {
     return (
         <div>
             <Section id="sobre">
-                <Title>Planejamento e controle</Title>
+                <Title>Gestão à vista</Title>
                 <Container>
                     <Text>
                       O planejamento e controle de obras é o que transforma um projeto em realidade de forma organizada e previsível. É nessa etapa que definimos cronogramas, custos, recursos e estratégias, garantindo que tudo aconteça no tempo certo e dentro do orçamento previsto.
@@ -52,7 +53,7 @@ O controle, por sua vez, acompanha a execução em tempo real, ajustando rotas s
 
 O resultado? Uma obra que avança de forma eficiente, com menos imprevistos, mais economia e a certeza de que o investimento está sendo bem administrado.
                     </Text>
-                    <Image src={QuadraK} alt="Render Logo" />
+                    <Image src={Dashborads} alt="Render Logo" />
                 </Container>
             </Section>
             <Newsletter />

@@ -35,6 +35,9 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: 16px;
+  background-color: #f3f4f6;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 
   @media (min-width: 768px) {
     flex-direction: ${(p) => (p.$reverse ? "row-reverse" : "row")};
@@ -48,6 +51,7 @@ const TextBlock = styled.div`
   display: flex;
   flex-direction: column;
   text-align: left;
+  margin: 60px;
 `;
 
 const Text = styled.p`
