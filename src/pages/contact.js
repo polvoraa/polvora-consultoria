@@ -146,20 +146,6 @@ const Image = styled.img`
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
 `;
 
-const Text = styled.p`
-  font-size: 1.2rem;
-  font-weight: 500;
-  text-align: left;
-  margin-bottom: 10px;
-  color: #0c2d4d;
-`;
-
-const TextContainer = styled.div``;
-
-const ButtonContainer = styled.div`
-  margin-top: 48px;
-`;
-
 export default function Projects() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -172,6 +158,9 @@ export default function Projects() {
   const [ok, setOk] = useState(false);
   const [error, setError] = useState("");
 
+  // ✅ CRA (react-scripts) usa process.env.REACT_APP_*
+  const API = process.env.REACT_APP_API_BASE_URL;
+
   async function handleSubmit(e) {
     e.preventDefault();
     setLoading(true);
@@ -179,7 +168,12 @@ export default function Projects() {
     setError("");
 
     try {
-      const res = await fetch("http://localhost:3000/api/contact", {
+      if (!API) {
+        setError("API não configurada (REACT_APP_API_BASE_URL).");
+        return;
+      }
+
+      const res = await fetch(`${API}/api/contact`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, email, message, company }),
