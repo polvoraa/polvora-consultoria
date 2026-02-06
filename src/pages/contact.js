@@ -1,7 +1,8 @@
+import { useState } from "react";
 import styled from "styled-components";
 import Render from "../images/render.png";
 import Newsletter from "../components/Newsletter";
-import ButtonOrcamento from "../components/Buttonorcamento"
+import ButtonOrcamento from "../components/Buttonorcamento";
 
 const Section = styled.section`
   padding: 80px 24px;
@@ -78,6 +79,25 @@ const Input = styled.input`
   }
 `;
 
+const Textarea = styled.textarea`
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: none;
+  font-size: 1rem;
+  width: 100%;
+  min-height: 120px;
+  resize: vertical;
+  background-color: #f3f4f6;
+  color: #111827;
+  outline: none;
+  transition: 0.3s;
+
+  &:focus {
+    background-color: #fff;
+    box-shadow: 0 0 0 2px #0c2d4d;
+  }
+`;
+
 const Button = styled.button`
   background-color: white;
   color: #0c2d4d;
@@ -94,6 +114,26 @@ const Button = styled.button`
     background-color: #cececeff;
     transform: translateY(-2px);
   }
+
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+  }
+`;
+
+const Status = styled.p`
+  font-size: 0.95rem;
+  margin-top: 6px;
+  color: #d1d5db;
+`;
+
+const StatusOk = styled(Status)`
+  color: #a7f3d0;
+`;
+
+const StatusErr = styled(Status)`
+  color: #fecaca;
 `;
 
 const Image = styled.img`
@@ -106,50 +146,121 @@ const Image = styled.img`
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
 `;
 
-const Text = styled.text`
-  font-size: 2.25rem;
-  font-weight: 700;
-  text-align: center;
-  margin-bottom: 48px;
+const Text = styled.p`
+  font-size: 1.2rem;
+  font-weight: 500;
+  text-align: left;
+  margin-bottom: 10px;
   color: #0c2d4d;
-`
-const TextContainer = styled.div`
+`;
 
-`
+const TextContainer = styled.div``;
 
 const ButtonContainer = styled.div`
   margin-top: 48px;
-`
+`;
 
 export default function Projects() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+
+  // Honeypot anti-spam: campo invisível (bots costumam preencher)
+  const [company, setCompany] = useState("");
+
+  const [loading, setLoading] = useState(false);
+  const [ok, setOk] = useState(false);
+  const [error, setError] = useState("");
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    setLoading(true);
+    setOk(false);
+    setError("");
+
+    try {
+      const res = await fetch("http://localhost:3000/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, message, company }),
+      });
+
+      const data = await res.json().catch(() => ({}));
+
+      if (!res.ok) {
+        setError(data?.error || "Erro ao enviar.");
+        return;
+      }
+
+      setOk(true);
+      setName("");
+      setEmail("");
+      setMessage("");
+      setCompany("");
+    } catch {
+      setError("Falha de rede/servidor.");
+    } finally {
+      setLoading(false);
+    }
+  }
+
   return (
     <div>
       <Section id="sobre">
         <Title>Entre em Contato</Title>
+
         <Container>
-          {/* <FormContainer>
-            <Form>
+          {/* FORMULÁRIO */}
+          <FormContainer>
+            <Form onSubmit={handleSubmit}>
               <Label>Nome</Label>
-              <Input type="text" placeholder="Seu nome" />
+              <Input
+                type="text"
+                placeholder="Seu nome"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
+              />
+
               <Label>E-mail</Label>
-              <Input type="email" placeholder="Seu e-mail" />
+              <Input
+                type="email"
+                placeholder="Seu e-mail"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+
               <Label>Mensagem</Label>
-              <Input type="text" placeholder="Digite sua mensagem" />
-              <Button type="submit">Enviar</Button>
+              <Textarea
+                placeholder="Digite sua mensagem"
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+                required
+              />
+
+              {/* honeypot invisível */}
+              <input
+                value={company}
+                onChange={(e) => setCompany(e.target.value)}
+                style={{ display: "none" }}
+                tabIndex={-1}
+                autoComplete="off"
+              />
+
+              <Button type="submit" disabled={loading}>
+                {loading ? "Enviando..." : "Enviar"}
+              </Button>
+
+              {ok && <StatusOk>Mensagem enviada ✅</StatusOk>}
+              {error && <StatusErr>Erro: {error}</StatusErr>}
             </Form>
-          </FormContainer> */}
-          <TextContainer>
-            <Title>Telefone:</Title>
-            <Text>+55 51 99748-1271</Text>
-            <Title>Email:</Title>
-            <Text>fabiano.polvora@gmail.com</Text>
-            <ButtonContainer>
-              <ButtonOrcamento />
-            </ButtonContainer>
-          </TextContainer>
+          </FormContainer>
+
           <Image src={Render} alt="Render Logo" />
         </Container>
       </Section>
+
       <Newsletter />
     </div>
   );
