@@ -2,7 +2,6 @@ import { useState } from "react";
 import styled from "styled-components";
 import Render from "../images/render.png";
 import Newsletter from "../components/Newsletter";
-import ButtonOrcamento from "../components/Buttonorcamento";
 
 const Section = styled.section`
   padding: 80px 24px;
@@ -159,7 +158,7 @@ export default function Projects() {
   const [error, setError] = useState("");
 
   // ✅ CRA (react-scripts) usa process.env.REACT_APP_*
-  const API = process.env.REACT_APP_API_BASE_URL;
+  const API = process.env.REACT_APP_API_BASE_URL?.replace(/\/$/, "");
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -176,7 +175,13 @@ export default function Projects() {
       const res = await fetch(`${API}/api/contact`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, message, company }),
+        body: JSON.stringify({
+          name,
+          email,
+          message,
+          company,
+          source: "site",
+        }),
       });
 
       const data = await res.json().catch(() => ({}));
