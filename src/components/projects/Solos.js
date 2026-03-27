@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import Bosque3 from "../../images/letreiroBosque.jpg";
 import Solos1 from "../../images/solos.jpg";
 import Solos2 from "../../images/solos2.jpg";
 import Solos3 from "../../images/solos3.jpg";
@@ -59,16 +58,6 @@ const MediaWrapper = styled.div`
 
   @media (max-width: 900px) {
     width: 100%;
-  }
-`;
-
-const VideoWrapper = styled(MediaWrapper)`
-  iframe {
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    height: auto;
-    border: none;
-    display: block;
   }
 `;
 

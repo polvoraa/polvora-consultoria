@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import QuadraK from "../images/render.png";
 import Newsletter from "../components/Newsletter";
-import { div } from "framer-motion/client";
 
 const Section = styled.section`
   padding: 48px 24px;
@@ -37,12 +36,6 @@ const Image = styled.img`
   object-fit: cover;
   border-radius: 8px;
 `;
-
-const frameYtb = styled.img`
-    align-items: center;
-    justify-items: center;
-    display: felx;
-`
 
 export default function Projects() {
   return (

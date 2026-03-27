@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import QuadraK from "../images/render.png";
 import Newsletter from "../components/Newsletter";
-import { div } from "framer-motion/client";
 
 const Section = styled.section`
   padding: 48px 24px;

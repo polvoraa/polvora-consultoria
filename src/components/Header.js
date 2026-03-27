@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import Logo from "../images/logo-header.svg";
-import ButtonOrcamento from "../components/Buttonorcamento"
 import { Link } from "react-router-dom";
+import Logo from "../images/logo-header.svg";
+import ButtonOrcamento from "../components/Buttonorcamento";
 
 const HeaderContainer = styled.header`
   display: flex;
@@ -32,20 +32,11 @@ const Nav = styled.nav`
   }
 
   @media (max-width: 768px) {
-    display: none; /* Esconde o menu no mobile */
+    display: none;
   }
 `;
 
-
-
 export default function Header() {
-  const orcamento = () => {
-    const numero = "555197481271"; 
-    const mensagem = "Olá! Gostaria de solicitar um orçamento.";
-    const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
-    window.open(url, "_blank"); // Abre em uma nova aba
-  };
-
   return (
     <HeaderContainer>
       <Link to="/">
@@ -56,7 +47,7 @@ export default function Header() {
         <Link to="/projects">Projetos Executados</Link>
         <Link to="/contact">Contato</Link>
       </Nav>
-      <ButtonOrcamento/>
+      <ButtonOrcamento />
     </HeaderContainer>
   );
 }

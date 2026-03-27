@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
-import styled from "styled-components";
 import "./Carouselscroll.css";
 import  bosque1 from '../images/bosque1.jpg';
 import  bosque2 from '../images/bosque2.jpg';

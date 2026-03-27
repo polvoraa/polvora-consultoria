@@ -1,8 +1,6 @@
 import styled from "styled-components";
-import QuadraK from "../images/render.png";
 import Newsletter from "../components/Newsletter";
-import Dashborads from "../images/PlanejamentoEControle/dashboards.jpeg"
-import { div } from "framer-motion/client";
+import Dashborads from "../images/PlanejamentoEControle/dashboards.jpeg";
 
 const Section = styled.section`
   padding: 48px 24px;
