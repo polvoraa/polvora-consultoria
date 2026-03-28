@@ -9,15 +9,6 @@ const Section = styled.section`
   color: #111827;
 `;
 
-const Title = styled.h2`
-  font-size: 1.25rem;
-  font-weight: 500;
-  text-align: left;
-  margin-top: 14px;
-  margin-bottom: 14px;
-  color: #0c2d4d;
-`;
-
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -27,7 +18,7 @@ const Container = styled.div`
   margin: 0 auto;
   background-color: #f9fafb;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-  padding: 40px 40px;
+  padding: 40px;
   border-radius: 32px;
 
   @media (min-width: 768px) {
@@ -52,8 +43,20 @@ const Form = styled.form`
   flex-direction: column;
   gap: 16px;
   width: 100%;
-  max-width: 400px;
+  max-width: 430px;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+`;
+
+const Title = styled.h2`
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #ffffff;
+`;
+
+const Intro = styled.p`
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #d1d5db;
 `;
 
 const Label = styled.label`
@@ -71,6 +74,7 @@ const Input = styled.input`
   color: #111827;
   outline: none;
   transition: 0.3s;
+  margin-top: 8px;
 
   &:focus {
     background-color: #fff;
@@ -82,6 +86,7 @@ const Textarea = styled.textarea`
   padding: 12px 16px;
   border-radius: 8px;
   border: none;
+  font-family: inherit;
   font-size: 1rem;
   width: 100%;
   min-height: 120px;
@@ -90,6 +95,7 @@ const Textarea = styled.textarea`
   color: #111827;
   outline: none;
   transition: 0.3s;
+  margin-top: 8px;
 
   &:focus {
     background-color: #fff;
@@ -110,7 +116,7 @@ const Button = styled.button`
   cursor: pointer;
 
   &:hover {
-    background-color: #cececeff;
+    background-color: #cecece;
     transform: translateY(-2px);
   }
 
@@ -149,15 +155,11 @@ export default function Projects() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-
-  // Honeypot anti-spam: campo invisível (bots costumam preencher)
   const [company, setCompany] = useState("");
-
   const [loading, setLoading] = useState(false);
   const [ok, setOk] = useState(false);
   const [error, setError] = useState("");
 
-  // ✅ CRA (react-scripts) usa process.env.REACT_APP_*
   const API = process.env.REACT_APP_API_BASE_URL?.replace(/\/$/, "");
 
   async function handleSubmit(e) {
@@ -206,39 +208,47 @@ export default function Projects() {
   return (
     <div>
       <Section id="sobre">
-        <Title>Entre em Contato</Title>
-
         <Container>
-          {/* FORMULÁRIO */}
           <FormContainer>
-            <Form onSubmit={handleSubmit}>
-              <Label>Nome</Label>
-              <Input
-                type="text"
-                placeholder="Seu nome"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                required
-              />
+            <Form id="contact-form" onSubmit={handleSubmit}>
+              <Title>Entre em contato</Title>
+              <Intro>
+                Conte um pouco sobre seu projeto para receber um retorno com
+                mais contexto e direcionamento.
+              </Intro>
 
-              <Label>E-mail</Label>
-              <Input
-                type="email"
-                placeholder="Seu e-mail"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-              />
+              <Label>
+                Nome
+                <Input
+                  type="text"
+                  placeholder="Seu nome"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  required
+                />
+              </Label>
 
-              <Label>Mensagem</Label>
-              <Textarea
-                placeholder="Digite sua mensagem"
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-                required
-              />
+              <Label>
+                E-mail
+                <Input
+                  type="email"
+                  placeholder="Seu e-mail"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
+              </Label>
 
-              {/* honeypot invisível */}
+              <Label>
+                Mensagem
+                <Textarea
+                  placeholder="Digite sua mensagem"
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                  required
+                />
+              </Label>
+
               <input
                 value={company}
                 onChange={(e) => setCompany(e.target.value)}
