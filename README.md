@@ -52,6 +52,9 @@ Endpoints principais:
 
 - `GET /api/health`
 - `POST /api/contact`
+- `POST /api/auth/login`
+- `GET /api/auth/me`
+- `GET /api/admin/messages`
 
 Payload esperado em `POST /api/contact`:
 
@@ -70,7 +73,7 @@ Payload esperado em `POST /api/contact`:
 1. Crie um Web Service apontando para este repositorio.
 2. Defina `Root Directory` como `backend`.
 3. Use `npm install` no build e `npm start` no start.
-4. Configure as variaveis `MONGODB_URI` e `FRONTEND_URL`.
+4. Configure as variaveis `MONGODB_URI`, `FRONTEND_URL`, `ADMIN_EMAIL`, `ADMIN_PASSWORD_HASH` e `JWT_SECRET`.
 5. Depois do deploy, copie a URL publica gerada pelo Render.
 
 Se preferir, o arquivo `render.yaml` ja deixa essa configuracao pronta como blueprint.
@@ -89,3 +92,5 @@ No cluster do Atlas:
 - O campo `company` funciona como honeypot anti-spam.
 - As mensagens sao salvas com `name`, `email`, `message`, `source`, `ip`, `userAgent` e timestamps.
 - O frontend ja envia os dados para `${REACT_APP_API_BASE_URL}/api/contact`.
+- O login admin usa um unico usuario configurado por variaveis de ambiente.
+- Para gerar o hash da senha do admin: `cd backend && npm run hash-password -- SUA_SENHA`
