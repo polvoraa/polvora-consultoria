@@ -1,5 +1,7 @@
 const express = require("express");
 const cors = require("cors");
+const authRoutes = require("./routes/authRoutes");
+const adminRoutes = require("./routes/adminRoutes");
 const contactRoutes = require("./routes/contactRoutes");
 
 const app = express();
@@ -28,6 +30,8 @@ app.get("/api/health", (req, res) => {
   return res.status(200).json({ status: "ok" });
 });
 
+app.use("/api/auth", authRoutes);
+app.use("/api/admin", adminRoutes);
 app.use("/api", contactRoutes);
 
 app.use((err, req, res, next) => {
